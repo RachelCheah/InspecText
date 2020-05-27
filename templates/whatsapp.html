@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="whatsapp-after-click">
+  <h2>Whatsapp</h2>
+  <p>
+    How to export WhatsApp chat:
+    <ol>
+      <li>Open chat</li>
+      <li>Tap <b>More Options</b></li>
+      <li>Tap <b>More</b></li>
+      <li>Tap <b>Export Chat</b></li>
+      <li>Tap <b>Without media</b></li>
+    </ol>
+  </p>
+
+  <form class="centralised" method="POST">
+    <div>
+      <label for="text-upload" class="box">Upload file <image src="{{url_for('static', filename='upload.png')}}" class="small-icon"></label>
+      <input type = "file" id="text-upload" accept=".txt">
+    </div>
+    
+    <br>
+    <input type="submit" formaction="output.html">
+  </form>
+
+</div>
+
+{% endblock %}

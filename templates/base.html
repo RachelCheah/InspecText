@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<title>InspecText</title>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+</head>
+
+<body>
+
+<nav id="navbar">
+  <ul>
+    <a href="index.html"><image src="{{url_for('static', filename='logo.png')}}" class="logo"></a>
+    <a href="start.html" class="nav"><li>START</li></a>
+    <a href="aims.html" class="nav"><li>Aims</li></a>
+    <a href="features.html" class="nav"><li>Features</li></a>
+  </ul>
+</nav>
+
+{% block content %}{% endblock %}
+
+<div class="footer">
+    <image src="{{url_for('static',filename='logo.png')}}" class="footer-logo">
+</div>
+
+</body>
+</html>
