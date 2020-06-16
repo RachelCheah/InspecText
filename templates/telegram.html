@@ -6,8 +6,20 @@
     <p>
         How to export Telegram chat:
         <ol>
+            <li>Install the <a href = "https://chrome.google.com/webstore/detail/save-telegram-chat-histor/kgldnbjoeinkkgpphaaljlfhfdbndfjc" class="redirect">Save Telegram Chat History</a> chrome extension</li>
+            <li>Login to <a href = "https://web.telegram.org/" class="redirect">Telegram web</a></li>
+            <li>Open chat</li>
+            <li>Click on the extension icon on the top right hand corner of your browser</li>
+            <li>Choose the <b>All</b> option under "Load", or any number of messages you want to include in the Inspection</li>
+            <li>Click the <b>save</b> icon at the bottom to obtain a .txt file</li>
         </ol>
     </p>
-</div>
 
+    <form class="centralised" method="POST" enctype="multipart/form-data">
+        <label for="text-upload" class="box" name="text">Upload file <image src="{{url_for('static', filename='upload.png')}}" class="small-icon"></label>
+        <input type = "file" id="text-upload" name="fileTelegram" accept=".txt">
+        <br>
+        <input type="submit">
+    </form>
+</div>
 {% endblock %}
