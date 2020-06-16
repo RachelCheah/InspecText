@@ -39,6 +39,14 @@ nav li {
     text-decoration: none;
 }
 
+.redirect {
+    color: #464646;
+}
+
+.redirect:hover {
+    color: #808080;
+}
+
 .logo{
     height: 116px;
     display: flex;
