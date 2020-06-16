@@ -14,16 +14,11 @@
     </ol>
   </p>
 
-  <form class="centralised" method="POST">
-    <div>
-      <label for="text-upload" class="box">Upload file <image src="{{url_for('static', filename='upload.png')}}" class="small-icon"></label>
-      <input type = "file" id="text-upload" accept=".txt">
-    </div>
-    
+  <form class="centralised" method="POST" enctype="multipart/form-data">
+    <label for="text-upload" class="box" name="text">Upload file <image src="{{url_for('static', filename='upload.png')}}" class="small-icon"></label>
+    <input type = "file" id="text-upload" name="fileWhatsapp" accept=".txt">
     <br>
-    <input type="submit" formaction="output.html">
-  </form>
-
-</div>
+    <input type="submit">
+  </form></div>
 
 {% endblock %}
