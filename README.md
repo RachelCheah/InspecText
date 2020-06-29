@@ -8,3 +8,11 @@ Run the kernel in order from the top.
 2. Under the 6th Kernel, insert file location of .txt file.
 3. Run the 9th kernel, rename author1_name and author2_name if you want the diagram to reflect a name other than your contact name.
 4. Run the rest of the code to the end and a file titled 'ChatAnalyzer.png' should appear in your file directory.
+
+
+Instructions to open our webpage (without the upload file feature 100% functioning):
+
+1. Download server.py, static folder, and templates folder and make sure they are all on the same folder in your laptop.
+2. Open server.py and run code
+3. In your terminal, you'll see the words "Running on http://127.0.0.1:5000/". This is a local host (run the code using VSCode if cannot get this step).
+4. You can now navigate through the webpage except for uploading of files (not fully functional).
