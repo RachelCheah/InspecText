@@ -3,6 +3,30 @@
 {% block content %}
     <div id="features">
         <h2>Features</h2>
-        <p></p>
+        <div class="home-items">
+            <p>Time of Day: analyse one's daily messaging habits</p>
+            <image src="{{ url_for('static', filename='timeofday.jpg')}}" class="img-right">
+        </div>
+
+        <div class="home-items">
+            <image src="{{ url_for('static', filename='dayofweek.jpg')}}" class="img-left">
+            <p>Day of Week: analyse your weekly interactions</p>
+        </div>
+
+        <div class="home-items">
+            <p>Timeline: overview of your messaging journey</p>
+            <image src="{{ url_for('static', filename='timeline.jpg')}}" class="img-right">
+        </div>
+
+        <div class="home-items">
+            <image src="{{ url_for('static', filename='topwords.jpg')}}" class="img-left">
+            <p>Top Words: identify overused words</p>
+        </div>
+
+        <div class="home-items">
+            <p>Word Cloud: aesthetic overview of top words</p>
+            <image src="{{ url_for('static', filename='wordcloud.jpg')}}" class="img-right">
+        </div>
+        
     </div>
 {% endblock %}
