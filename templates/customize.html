@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="output">
+    <h2>Customize!</h2>
+    <form method="POST" enctype="multipart/form-data"> 
+        <h1>Display name</h1>
+        <p>
+            <input type="radio" name="contactOrNot" id="contact" value="yes" checked onclick="disableName()">Contact name (without emojis)</input>
+            <br>
+            <input type="radio" name="contactOrNot" id="notContact" value="no" onclick="enableName()">Customize name</input>
+            <p>Author 1: 
+                <input type="text" id="yourName" name="authorOne" value= {{author1}} disabled>
+                <br>
+                Author 2: 
+                <input type="text" id="friendName" name="authorTwo" value= {{author2}} disabled>
+            </p>
+        </p>
+
+        <script>
+            function enableName() {
+                document.getElementById("yourName").disabled = false;
+                document.getElementById("friendName").disabled = false;
+            }
+            function disableName() {
+                document.getElementById("yourName").disabled = true;
+                document.getElementById("friendName").disabled = true;
+            }
+        </script>
+
+
+
+        <h1>Date range</h1>
+        <p>
+            <input type="radio" name="dateRange" id="all" value="yes" checked onclick="disableDate()">All chat history: from start of conversation to now</input>
+            <br>
+            <input type="radio" name="dateRange" id="notAll" value="no" onclick="enableDate()">Customize range</input>
+            <p>Start date: 
+                <input type="date" id="startDate" name="startDate" min={{startDate}} max={{endDate}} disabled>
+                End date: 
+                <input type="date" id="endDate" name="endDate" min={{startDate}} max={{endDate}} disabled>
+            </p>
+        </p>
+
+        <script>
+            function enableDate() {
+                document.getElementById("startDate").disabled = false;
+                document.getElementById("endDate").disabled = false;
+            }
+            function disableDate() {
+                document.getElementById("startDate").disabled = true;
+                document.getElementById("endDate").disabled = true;
+            }
+        </script>
+
+
+
+        <h1>Colours</h1>
+        <p>
+            <label for="colour1">Author One</label>
+            <input type="color" name="colour1" id="colour1" value="#ff9aa2">
+            <label for="colour2">Author Two</label>
+            <input type="color" name="colour2" id="colour2" value="#a89c94">
+        </p>
+
+
+
+        <h1>WordCloud shape</h1>
+        <p>
+            <label>
+                <input type="radio" name="shape" id="shape1" value="shape1" class="radio-img">
+                <img src="{{url_for('static', filename='shape1.jpg')}}">
+            </label>
+            <label>
+                <input type="radio" name="shape" id="shape2" value="shape2" class="radio-img">
+                <img src="{{url_for('static', filename='shape2.jpg')}}">
+            </label>
+            <label>
+                <input type="radio" name="shape" id="shape3" value="shape3" class="radio-img">
+                <img src="{{url_for('static', filename='shape3.jpg')}}">
+            </label>
+            <label>
+                <input type="radio" name="shape" id="shape4" value="shape4" class="radio-img">
+                <img src="{{url_for('static', filename='shape4.jpg')}}">
+            </label>
+            <label>
+                <input type="radio" name="shape" id="shape5" value="shape5" class="radio-img">
+                <img src="{{url_for('static', filename='shape5.jpg')}}">
+            </label>
+        </p>
+
+        <p><input type="submit"></p>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,21 +1,115 @@
 <!DOCTYPE html>
 <html>
+
 <title>InspecText</title>
 
-<head>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='outputStyle.css')}}">
-</head>
 
-<body>
+<style>
+    @font-face {
+        font-family: JosefinSans;
+        src: url_for('static', filename='JosefinSans-Bold-webfont.woff');
+    }
+    
+    @font-face {
+        font-family: Gabriola;
+        src: url_for('static', filename='gabriola Font Download.woff');
+    }
 
-    {{one}}
-    {{two}}
-    {{fourOne}}
-    {{fourTwo}}
+    html, body{
+        background-color: #f0f0f0;
+        color: black;
+        height:100%;
+        width: 100%;
+    }
 
-<div class="footer">
-    <image src="{{url_for('static',filename='logo.png')}}" class="footer-logo">
+    h1 {
+        font-family: Gabriola;
+        text-transform: uppercase;
+        font-size: 60px;
+        text-align: center;
+    }
+    
+    .colour1 {
+        color: {{ colour1 }}
+    }
+
+    .colour2 {
+        color: {{ colour2 }}
+    }
+
+    p {
+        font-family: Gabriola;
+        text-align: center;
+    }
+
+    .items {    
+        display: inline-block;
+        width: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+    .spider-plot-left {
+        height: 280px;
+        float: left;
+        padding-left: 90px;
+    }
+
+    .spider-plot-right {
+        height: 280px;
+        float: right;
+        padding-right: 90px;
+    }
+
+    .graph {
+        display: block;
+        height: 280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .half-size-left {
+        height: 200px;
+        float: left;
+        padding-left: 20px;
+    }
+
+    .half-size-right {
+        height: 200px;
+        float: right;
+        padding-right: 20px;
+    }
+</style>
+
+    
+<h1> <span class="colour1">{{author1}}</span> & <span class="colour2">{{author2}}</span> </h1>
+<div>
+    <img src="data:image/png;base64,{{ fourhtml }}" class="half-size-left">
+    <img src="data:image/png;base64,{{ fivehtml }}" class="half-size-right">
+    <p>
+        {{wpm1}}
+        <br>
+        {{wpm2}}
+        <br>
+        {{morewpm}}
+        <br>
+        {{messages1}}
+        <br>
+        {{messages2}}
+        <br>
+        {{moremessages}}
+    </p>
+</div>
+<br>
+<div class="items">
+    <img src="data:image/png;base64,{{ onehtml }}" class="spider-plot-left">
+    <img src="data:image/png;base64,{{ twohtml }}" class="spider-plot-right">
 </div>
 
-</body>
+<br>
+<br>
+<img src="data:image/png;base64,{{ threehtml }}" class="graph">
+<br>
+<img src="data:image/png;base64,{{ sixhtml }}" class="graph">
+
 </html>

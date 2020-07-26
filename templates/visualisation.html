@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div id="features">
+        <h2>Visualizations</h2>
+        <div class="home-items">
+            <p>1) Time of Day: analyse your daily messaging habits</p>
+            <image src="{{ url_for('static', filename='timeofday.png')}}" class="img-right-shadow">
+        </div>
+
+        <div class="home-items">
+            <image src="{{ url_for('static', filename='dayofweek.png')}}" class="img-left-shadow">
+            <p>2) Day of Week: analyse your weekly interactions</p>
+        </div>
+
+        <div class="home-items">
+            <p>3) Timeline: overview of your messaging journey</p>
+            <image src="{{ url_for('static', filename='timeline.png')}}" class="img-right-shadow">
+        </div>
+
+        <div class="home-items">
+            <image src="{{ url_for('static', filename='wordcloud.png')}}" class="img-left-shadow">
+            <p>4) Word Cloud: aesthetic overview of top words</p>
+        </div>
+
+        <div class="home-items">
+            <p>5) Sentiment Analysis: overview of your conversation's positivity/negativity</p>
+            <image src="{{ url_for('static', filename='sentiment.png')}}" class="img-right-shadow">
+        </div>
+
+    </div>
+{% endblock %}

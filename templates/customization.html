@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div id="features">
+        <h2>Customizations</h2>
+        <div class="home-items">
+            <p>1) Display Names: to have a choice to reflect nicknames that you gave your friend</p>
+            <image src="{{ url_for('static', filename='displayname.png')}}" class="img-right-shadow">
+        </div>
+
+        <div class="home-items">
+            <image src="{{ url_for('static', filename='daterange.png')}}" class="img-left-shadow">
+            <p>2) Date Range: to limit inspection to only a particular year or month that is significant for the event</p>
+        </div>
+
+        <div class="home-items">
+            <p>3) Colours: to mix and match the different colours representing each person in the visualizations</p>
+            <image src="{{ url_for('static', filename='colours.png')}}" class="img-right-shadow">
+        </div>
+
+        <div class="home-items">
+            <image src="{{ url_for('static', filename='wordcloudshape.png')}}" class="img-left-shadow">
+            <p>4) Word Cloud Shapes: to change the shapes of your wordclouds to personalize it to the recipient</p>
+        </div>
+
+    </div>
+{% endblock %}

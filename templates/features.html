@@ -3,30 +3,26 @@
 {% block content %}
     <div id="features">
         <h2>Features</h2>
+        <p class="centralised">What the website offers: from an exported chat to a beautiful poster</p>
         <div class="home-items">
-            <p>Time of Day: analyse one's daily messaging habits</p>
-            <image src="{{ url_for('static', filename='timeofday.jpg')}}" class="img-right">
+            <div>
+                <h1>Visualizations</h1>
+                <p class="centralised"><a href="/features/visualize">
+                    <button class="box">View All</button>
+                </a></p>
+            </div>
+            <br>
+            <image src="{{ url_for('static', filename='visualize.png')}}" class="img-right">
         </div>
 
         <div class="home-items">
-            <image src="{{ url_for('static', filename='dayofweek.jpg')}}" class="img-left">
-            <p>Day of Week: analyse your weekly interactions</p>
+            <image src="{{ url_for('static', filename='customize.png')}}" class="img-left">
+            <div>
+                <h1>Customizations</h1>
+                <p class="centralised"><a href="/features/customize">
+                    <button class="box">View All</button>
+                </a></p>
+            </div>
         </div>
-
-        <div class="home-items">
-            <p>Timeline: overview of your messaging journey</p>
-            <image src="{{ url_for('static', filename='timeline.jpg')}}" class="img-right">
-        </div>
-
-        <div class="home-items">
-            <image src="{{ url_for('static', filename='topwords.jpg')}}" class="img-left">
-            <p>Top Words: identify overused words</p>
-        </div>
-
-        <div class="home-items">
-            <p>Word Cloud: aesthetic overview of top words</p>
-            <image src="{{ url_for('static', filename='wordcloud.jpg')}}" class="img-right">
-        </div>
-        
     </div>
 {% endblock %}

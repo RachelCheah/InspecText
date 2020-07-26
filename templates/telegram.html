@@ -6,20 +6,41 @@
     <p>
         How to export Telegram chat:
         <ol>
-            <li>Install the <a href = "https://chrome.google.com/webstore/detail/save-telegram-chat-histor/kgldnbjoeinkkgpphaaljlfhfdbndfjc" class="redirect">Save Telegram Chat History</a> chrome extension</li>
-            <li>Login to <a href = "https://web.telegram.org/" class="redirect">Telegram web</a></li>
+            <li>Install <a href = "https://desktop.telegram.org/" class="redirect">Telegram Desktop</a> and complete the installation process</li>
+            <br>
+            <li>Open Telegram Desktop app</li>
+            <br>
             <li>Open chat</li>
-            <li>Click on the extension icon on the top right hand corner of your browser</li>
-            <li>Choose the <b>All</b> option under "Load", or any number of messages you want to include in the Inspection</li>
-            <li>Click the <b>save</b> icon at the bottom to obtain a .txt file</li>
+            <br>
+            <li>Click <b>More Options</b></li>
+            <br>
+            <li>Click <b>Export chat history</b></li>
+            <image src="{{url_for('static', filename='telegram1.jpg')}}" class="screenshots"></image>
+            <br>
+            <li>Untick the <b>Photos</b> selection</li>
+            <image src="{{url_for('static', filename='telegram2.jpg')}}" class="screenshots"></image>
+            <br>
+            <li>Change the Format from <b>HTML</b> to <b>JSON</b></li>
+            <image src="{{url_for('static', filename='telegram3.jpg')}}" class="screenshots"></image>
+            <image src="{{url_for('static', filename='telegram4.jpg')}}" class="screenshots"></image>
+            <br>
+            <li>Check that your settings is the same as shown below. Keep the start and end date as the default selection, you can choose to customize that later on!</li>
+            <image src="{{url_for('static', filename='telegram5.jpg')}}" class="screenshots"></image>
+            <li>Click <b>EXPORT</b></li>
+            <br>
+            <li>After <b>"Your data was successfully exported"</b>, click <b>SHOW MY DATA</b>. This should bring you to the export folder</li>
+            <image src="{{url_for('static', filename='telegram6.jpg')}}" class="screenshots"></image>
+            <br>
+            <li>Upload the file <b>result.json</b> using the button below</li>
         </ol>
     </p>
 
     <form class="centralised" method="POST" enctype="multipart/form-data">
         <label for="text-upload" class="box" name="text">Upload file <image src="{{url_for('static', filename='upload.png')}}" class="small-icon"></label>
-        <input type = "file" id="text-upload" name="fileTelegram" accept=".txt">
+        <input type = "file" id="text-upload" name="fileTelegram" accept=".json">
         <br>
-        <input type="submit">
+        <input type="submit" value="inspect!">
     </form>
 </div>
+
 {% endblock %}
