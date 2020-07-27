@@ -780,9 +780,9 @@ def customize():
         if author1_colour == author2_colour:
             flash("Please choose different colours for the two authors")
             return redirect('/customize')
-        if request.form["shape"]:
+        try:
             shape = request.form["shape"]
-        else:
+        except KeyError:
             flash("Please choose a shape for your wordcloud")
             return redirect('/customize')
         return redirect('/output')
