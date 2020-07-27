@@ -94,8 +94,12 @@ def telegramData(textFile):
 
     author1_name = remove_emoji(authors[0])
     author1_name = author1_name.strip()
+    if author1_name == '':
+        author1_name = 'Author 1'
     author2_name = remove_emoji(authors[1])
     author2_name = author2_name.strip()
+    if author2_name == '':
+        author2_name = 'Author 2'
 
     media_messages_df = df[df['Message'] == '<Media omitted>']
     df= df.drop(media_messages_df.index) #to drop the media files
@@ -677,13 +681,13 @@ def plot():
     more_messages = who_sent_more()
 
 ########################################################################################################################################
+def allowed_whatsapp(filename):
+    return '.' in filename and \
+        filename.rsplit('.', 1)[1].lower() == 'txt' 
 
-def process(textFile, author1, author2, startDate, endDate, colour1, colour2):
-    prnt = "author1 = " + author1 + " author2 = " + author2 + " start date = " + str(startDate) + " end date = " + str(endDate) + " colour1 = " + colour1 + " colour2 = " + colour2
-    #with open(textFile, encoding="UTF-8") as fp:
-        #prnt += fp.readline()
-    return prnt
-
+def allowed_telegram(filename):
+    return '.' in filename and \
+        filename.rsplit('.',1)[1].lower() == 'json'
 ########################################################################################################################################
 
 @app.route('/')
@@ -704,8 +708,12 @@ def whatsapp():
         fileWhatsapp = request.files["fileWhatsapp"] #file is now the text file
         if fileWhatsapp:
             filename = secure_filename(fileWhatsapp.filename)
-            fileWhatsapp.save(os.path.join("uploads", filename))
-            return redirect('/customize')
+            if allowed_whatsapp(filename):
+                fileWhatsapp.save(os.path.join("uploads", filename))
+                return redirect('/customize')
+            else:
+                flash("Please only select a .txt file of your Whatsapp chat")
+                return redirect('/start/whatsapp/')
         else:
             flash("No file selected for uploading")
             return redirect('/start/whatsapp/')
@@ -719,8 +727,12 @@ def telegram():
         fileTelegram = request.files["fileTelegram"] #file is now the text file
         if fileTelegram:
             filename = secure_filename(fileTelegram.filename)
-            fileTelegram.save(os.path.join("uploads", filename))
-            return redirect('/customize')
+            if allowed_telegram(filename):
+                fileTelegram.save(os.path.join("uploads", filename))
+                return redirect('/customize')
+            else:
+                flash("Please only select a .json file of your Telegram chat")
+                return redirect('/start/telegram/')
         else:
             flash("No file selected for uploading")
             return redirect('/start/telegram/')
@@ -791,6 +803,8 @@ def customize():
 
 @app.route('/output/')
 def output():
+    global fileTelegram
+    global fileWhatsapp
     plot()
     '''
     pdf = pdfkit.from_string(process("uploads/" + filename, author1_name, author2_name, startDate, endDate, author1_colour, author2_colour), False) #for testing
@@ -822,6 +836,9 @@ def output():
     os.remove(os.path.join("uploads", 'author1cloud.png'))
     os.remove(os.path.join("uploads", 'author2cloud.png'))
     os.remove(os.path.join("uploads", 'sentiment.png'))
+
+    fileTelegram = ''
+    fileWhatsapp= ''
     
     return response
 
