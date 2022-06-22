@@ -21,7 +21,7 @@ MarkupSafe==1.1.1
 matplotlib==3.3.0
 mccabe==0.6.1
 nltk==3.5
-numpy==1.19.1
+numpy==1.22.0
 pandas==1.1.0
 parso==0.7.1
 pdfkit==0.6.1
